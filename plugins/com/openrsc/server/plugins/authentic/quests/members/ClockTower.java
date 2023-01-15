@@ -33,7 +33,7 @@ public class ClockTower implements QuestInterface, TalkNpcTrigger,
 
 	@Override
 	public String getQuestName() {
-		return "Clock tower (members)";
+		return "Clock tower";
 	}
 
 	@Override

@@ -266,7 +266,7 @@ public abstract class GameDatabase {
 
 	public abstract DiscordWatchlist[] queryWatchlists() throws GameDatabaseException;
 
-	public abstract int queryPlayerIdFromDiscordId(final long discordId) throws GameDatabaseException;
+	public abstract int queryPlayerIdFromDiscordId(final String discordId) throws GameDatabaseException;
 
 	public abstract int queryMaxItemID() throws GameDatabaseException;
 
@@ -720,7 +720,7 @@ public abstract class GameDatabase {
 		return queryWatchlists();
 	}
 
-	public int playerIdFromDiscordId(long discordId) throws GameDatabaseException {
+	public int playerIdFromDiscordId(String discordId) throws GameDatabaseException {
 		return queryPlayerIdFromDiscordId(discordId);
 	}
 

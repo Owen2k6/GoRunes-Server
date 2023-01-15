@@ -31,7 +31,7 @@ public class WatchTowerDialogues implements QuestInterface, TalkNpcTrigger, UseN
 
 	@Override
 	public String getQuestName() {
-		return "Watchtower (members)";
+		return "Watchtower";
 	}
 
 	@Override

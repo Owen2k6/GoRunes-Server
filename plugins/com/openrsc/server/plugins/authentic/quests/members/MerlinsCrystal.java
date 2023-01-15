@@ -42,7 +42,7 @@ public class MerlinsCrystal implements QuestInterface, TalkNpcTrigger,
 
 	@Override
 	public String getQuestName() {
-		return "Merlin's crystal (members)";
+		return "Merlin's crystal";
 	}
 
 	@Override

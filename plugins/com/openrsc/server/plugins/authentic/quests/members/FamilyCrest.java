@@ -34,7 +34,7 @@ public class FamilyCrest implements QuestInterface, TalkNpcTrigger,
 
 	@Override
 	public String getQuestName() {
-		return "Family crest (members)";
+		return "Family crest";
 	}
 
 	@Override

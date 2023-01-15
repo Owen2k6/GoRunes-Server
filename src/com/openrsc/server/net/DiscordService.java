@@ -110,14 +110,14 @@ public class DiscordService implements Runnable{
 			final String[] args = message.getContentRaw().split(" ");
 			String reply = "";
 			if (event.getChannelType() == ChannelType.PRIVATE) {
-				if (message.getContentRaw().startsWith("!help"))
+				if (message.getContentRaw().startsWith("=help"))
 				{
-					reply = "To see the commands that are available, type !commands. Some commands require you to pair your discord account to your openrsc account. To do this, type ::pair in game to get your pairing token, then return to this DM and type !pair TOKEN";
-				} else if (message.getContentRaw().startsWith("!commands")) {
-					reply = "!auctions\n!stats\n!watch\n!pair\n!help";
-				} else if (message.getContentRaw().startsWith("!pair")) {
+					reply = "To see the commands that are available, type =commands. Some commands require you to pair your discord account to your openrsc account. To do this, type ::pair in game to get your pairing token, then return to this DM and type =pair TOKEN";
+				} else if (message.getContentRaw().startsWith("=commands")) {
+					reply = "=auctions\n=stats\n=watch\n=pair\n=help";
+				} else if (message.getContentRaw().startsWith("=pair")) {
 					if (args.length != 2) {
-						reply = "Usage: !pair TOKEN";
+						reply = "Usage: =pair TOKEN";
 					} else {
 						try {
 							int dbID = getServer().getDatabase().playerIdFromDiscordPairToken(args[1]);
@@ -144,27 +144,27 @@ public class DiscordService implements Runnable{
 							a.printStackTrace();
 						}
 					}
-				} else if (message.getContentRaw().startsWith("!auctions")) {
+				} else if (message.getContentRaw().startsWith("=auctions")) {
 					final ArrayList<MarketItem> auctionList = (ArrayList<MarketItem>)this.server.getWorld().getMarket().getAuctionItems().clone();
 					final Iterator<MarketItem> e = auctionList.iterator();
 					if (e.hasNext()) {
 							int dbID = 0;
-							if ((dbID = discordToDBId(message.getAuthor().getIdLong())) != 0) {
+							if ((dbID = discordToDBId(message.getAuthor().getId())) != 0) {
 								while (e.hasNext()) {
 									MarketItem a = e.next();
 									if (a.getSeller() == dbID)
 										reply = reply + server.getEntityHandler().getItemDef(a.getCatalogID()).getName() + " (" + a.getAmountLeft() + ") @ " + a.getPrice() + "gp ea. (" + a.getHoursLeft() + "hrs)\n";
 								}
 							} else
-								reply = "You have not paired an account yet. Type !help for more information";
+								reply = "You have not paired an account yet. Type =help for more information";
 					}
 					if (reply.isEmpty())
 						reply = "You have no active auctions.";
 					reply = "`" + reply + "`";
-				} else if (message.getContentRaw().startsWith("!stats")
-							|| message.getContentRaw().startsWith("!skills")) {
+				} else if (message.getContentRaw().startsWith("=stats")
+							|| message.getContentRaw().startsWith("=skills")) {
 					int dbID = 0;
-					if ((dbID = discordToDBId(message.getAuthor().getIdLong())) != 0) {
+					if ((dbID = discordToDBId(message.getAuthor().getId())) != 0) {
 						try {
 							PlayerExperience[] playerExp = getServer().getDatabase().getPlayerExp(dbID);
 							String username = dbIdToUsername(dbID);
@@ -194,9 +194,9 @@ public class DiscordService implements Runnable{
 
 
 					} else {
-						reply = "You have not paired an account yet. Type !help for more information";
+						reply = "You have not paired an account yet. Type =help for more information";
 					}
-				} else if (message.getContentRaw().startsWith("!bug ")) {
+				} else if (message.getContentRaw().startsWith("=bug ")) {
 					if (gitLabApi != null) {
 						final int hasTitle = message.getContentRaw().indexOf(" -t ");
 						final int hasDesc = message.getContentRaw().indexOf(" -d ");
@@ -212,10 +212,10 @@ public class DiscordService implements Runnable{
 								a.printStackTrace();
 							}
 						} else
-							reply = "Usage: !bug -t TITLE -d DESCRIPTION";
+							reply = "Usage: =bug -t TITLE -d DESCRIPTION";
 					} else
 						reply = "The bug submission service has malfunctioned. Please report this to an admin.";
-				} else if (message.getContentRaw().startsWith("!watch")) {
+				} else if (message.getContentRaw().startsWith("=watch")) {
 					if (args.length > 1) {
 						try {
 							final String dbWatchlist = getServer().getDatabase().getWatchlist(message.getAuthor().getIdLong());
@@ -266,7 +266,7 @@ public class DiscordService implements Runnable{
 										reply = "You must enter a valid number as the item ID.";
 									}
 								} else
-									reply = "Usage: !watch add ITEMID";
+									reply = "Usage: =watch add ITEMID";
 							} else if (args[1].equalsIgnoreCase("del")
 								|| args[1].equalsIgnoreCase("rem")) {
 								if (args.length > 2) {
@@ -304,18 +304,18 @@ public class DiscordService implements Runnable{
 									}
 
 								} else
-									reply = "Usage: !watch del ITEMID";
+									reply = "Usage: =watch del ITEMID";
 							} else if (args[1].equalsIgnoreCase("help")) {
-								reply = "The auction watchlist feature will notify you when an item of your interest is placed on the auction house. To use it, use !watch [list add del] [item id]. To get an items ID, use https://openrsc.com/items. The number in () after the items name is its ID. You may have up to 10 items on your watchlist.";
+								reply = "The auction watchlist feature will notify you when an item of your interest is placed on the auction house. To use it, use =watch [list add del] [item id]. To get an items ID, use https://openrsc.com/items. The number in () after the items name is its ID. You may have up to 10 items on your watchlist.";
 							}
 							else
-								reply = "Usage: !watch [list add del help]";
+								reply = "Usage: =watch [list add del help]";
 
 						} catch (GameDatabaseException a) {
 							a.printStackTrace();
 						}
 					} else
-						reply = "Usage: !watch [list add del help]";
+						reply = "Usage: =watch [list add del help]";
 
 				}
 			} else if (message.getChannel().getIdLong() == this.server.getConfig().CROSS_CHAT_CHANNEL
@@ -326,8 +326,8 @@ public class DiscordService implements Runnable{
 					ActionSender.sendMessage(p, null, MessageType.GLOBAL_CHAT, "@whi@[@gr2@D>G@whi@] @or1@" + message.getAuthor().getName() + "@yel@: " + strMessage, 0, null);
 				}
 			} else {
-				if (message.getContentRaw().startsWith("!help")) {
-					reply = "Please use !help in a DM to me for more information.";
+				if (message.getContentRaw().startsWith("=help")) {
+					reply = "Please use =help in a DM to me for more information.";
 				}
 			}
 
@@ -344,7 +344,7 @@ public class DiscordService implements Runnable{
 		}
 	}
 
-	public void sendPM(final long channelID, final String message) {
+	public void sendPM(final String channelID, final String message) {
 		final PrivateChannel textChannel = jda.getPrivateChannelById(channelID);
 		final User user = jda.getUserById(channelID);
 		if (user != null)
@@ -379,7 +379,7 @@ public class DiscordService implements Runnable{
 				final String watchlist = discordWatchlist.list;
 				if (watchlist.contains(String.valueOf(addItem.getCatalogID()))) {
 					try {
-						final long discordID = discordWatchlist.discordId;
+						final String discordID = discordWatchlist.discordId;
 						final ItemDefinition itemDef = server.getEntityHandler().getItemDef(addItem.getCatalogID());
 						if (itemDef != null) {
 							String message = "[" + server.getConfig().SERVER_NAME + " watchlist] " + itemDef.getName() + " ( " + addItem.getAmountLeft() + " @ " + addItem.getPrice() + "gp)";
@@ -477,7 +477,7 @@ public class DiscordService implements Runnable{
 		}
 	}
 
-	public int discordToDBId(final long discord) {
+	public int discordToDBId(final String discord) {
 		try {
 			getServer().getDatabase().playerIdFromDiscordId(discord);
 		} catch (GameDatabaseException a) {

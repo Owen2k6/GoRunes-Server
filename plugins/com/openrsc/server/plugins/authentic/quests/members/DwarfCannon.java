@@ -44,7 +44,7 @@ public class DwarfCannon
 
 	@Override
 	public String getQuestName() {
-		return "Dwarf Cannon (members)";
+		return "Dwarf Cannon";
 	}
 
 	@Override

@@ -37,7 +37,7 @@ public class ScorpionCatcher implements QuestInterface, TalkNpcTrigger,
 
 	@Override
 	public String getQuestName() {
-		return "Scorpion catcher (members)";
+		return "Scorpion catcher";
 	}
 
 	@Override

@@ -47,7 +47,7 @@ public class WitchesHouse implements QuestInterface, TalkNpcTrigger,
 
 	@Override
 	public String getQuestName() {
-		return "Witch's house (members)";
+		return "Witch's house";
 	}
 
 	@Override

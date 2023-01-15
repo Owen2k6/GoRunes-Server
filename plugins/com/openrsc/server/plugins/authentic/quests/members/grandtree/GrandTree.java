@@ -57,7 +57,7 @@ public class GrandTree implements QuestInterface, TalkNpcTrigger, OpLocTrigger, 
 
 	@Override
 	public String getQuestName() {
-		return "Grand tree (members)";
+		return "Grand tree";
 	}
 
 	@Override

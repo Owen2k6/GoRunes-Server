@@ -32,41 +32,25 @@ public class Auctioneers implements TalkNpcTrigger, OpNpcTrigger {
 
 	@Override
 	public void onTalkNpc(Player player, final Npc npc) {
-		npcsay(player, npc, "Hello");
+		npcsay(player, npc, "Hello, how can I help you?");
 		int menu;
-		if (npc.getID() == AUCTION_CLERK) {
-			menu = multi(player, npc, "I'd like to browse the auction house", "Can you teleport me to Varrock Centre");
-		} else {
-			menu = multi(player, npc, "I'd like to browse the auction house");
-		}
+		menu = multi(player, npc, "I'd like to browse the auction house");
 		if (menu == 0) {
 			if (player.isIronMan(IronmanMode.Ironman.id()) || player.isIronMan(IronmanMode.Ultimate.id())
 				|| player.isIronMan(IronmanMode.Hardcore.id()) || player.isIronMan(IronmanMode.Transfer.id())) {
 				player.message("As an Iron Man, you cannot use the Auction.");
 				return;
 			}
-			if (player.getTotalLevel() < 100) {
+			if (player.getTotalLevel() < 50) {
 				npcsay(player, npc, "Sorry, you don't seem trustworthy enough yet.");
 				delay();
-				mes("You must have over 100 total skill to use the auction house.");
+				mes("You must have over 50 total skill to use the auction house.");
 				return;
 			}
 			if(validatebankpin(player, npc)) {
 				npcsay(player, npc, "Certainly " + (player.isMale() ? "Sir" : "Miss"));
 				player.setAttribute("auctionhouse", true);
 				ActionSender.sendOpenAuctionHouse(player);
-			}
-		} else if (menu == 1) {
-			npcsay(player, npc, "Yes of course " + (player.isMale() ? "Sir" : "Miss"),
-				"the costs is 1,000 coins");
-			int tMenu = multi(player, npc, "Teleport me", "I'll stay here");
-			if (tMenu == 0) {
-				if (ifheld(player, ItemId.COINS.id(), 1000)) {
-					player.getCarriedItems().remove(new Item(ItemId.COINS.id(), 1000));
-					player.teleport(133, 508);
-				} else {
-					player.message("You don't seem to have enough coins");
-				}
 			}
 		}
 	}

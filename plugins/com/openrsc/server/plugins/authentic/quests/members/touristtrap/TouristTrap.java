@@ -69,7 +69,7 @@ public class TouristTrap implements QuestInterface, TalkNpcTrigger, UseNpcTrigge
 
 	@Override
 	public String getQuestName() {
-		return "Tourist trap (members)";
+		return "Tourist trap";
 	}
 
 	@Override

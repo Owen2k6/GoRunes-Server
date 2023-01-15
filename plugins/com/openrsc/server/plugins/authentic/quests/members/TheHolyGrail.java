@@ -34,7 +34,7 @@ public class TheHolyGrail implements QuestInterface, TalkNpcTrigger,
 
 	@Override
 	public String getQuestName() {
-		return "The Holy Grail (members)";
+		return "The Holy Grail";
 	}
 
 	@Override

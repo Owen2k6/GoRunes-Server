@@ -35,7 +35,7 @@ public class FishingContest implements QuestInterface, TalkNpcTrigger,
 
 	@Override
 	public String getQuestName() {
-		return "Fishing contest (members)";
+		return "Fishing contest";
 	}
 
 	@Override

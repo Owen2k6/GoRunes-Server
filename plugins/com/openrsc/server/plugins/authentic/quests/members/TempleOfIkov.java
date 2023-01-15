@@ -40,7 +40,7 @@ public class TempleOfIkov implements QuestInterface, TalkNpcTrigger,
 
 	@Override
 	public String getQuestName() {
-		return "Temple of Ikov (members)";
+		return "Temple of Ikov";
 	}
 
 	@Override

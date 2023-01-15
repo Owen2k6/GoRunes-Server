@@ -30,7 +30,7 @@ public class ShiloVillageTombDolmen implements QuestInterface, OpLocTrigger, Use
 
 	@Override
 	public String getQuestName() {
-		return "Shilo village (members)";
+		return "Shilo village";
 	}
 
 	@Override

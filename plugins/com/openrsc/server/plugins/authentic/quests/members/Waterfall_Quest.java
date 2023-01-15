@@ -37,7 +37,7 @@ public class Waterfall_Quest implements QuestInterface, TalkNpcTrigger,
 
 	@Override
 	public String getQuestName() {
-		return "Waterfall Quest (members)";
+		return "Waterfall Quest";
 	}
 
 	@Override

@@ -40,7 +40,7 @@ public class HazeelCult implements QuestInterface, TalkNpcTrigger, KillNpcTrigge
 
 	@Override
 	public String getQuestName() {
-		return "The Hazeel Cult (members)";
+		return "The Hazeel Cult";
 	}
 
 	@Override

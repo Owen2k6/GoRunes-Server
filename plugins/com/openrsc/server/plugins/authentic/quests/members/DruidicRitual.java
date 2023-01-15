@@ -31,7 +31,7 @@ public class DruidicRitual implements QuestInterface, TalkNpcTrigger,
 
 	@Override
 	public String getQuestName() {
-		return "Druidic ritual (members)";
+		return "Druidic ritual";
 	}
 
 	@Override

@@ -34,7 +34,7 @@ public class SeaSlug implements QuestInterface, TalkNpcTrigger,
 
 	@Override
 	public String getQuestName() {
-		return "Sea Slug (members)";
+		return "Sea Slug";
 	}
 
 	@Override

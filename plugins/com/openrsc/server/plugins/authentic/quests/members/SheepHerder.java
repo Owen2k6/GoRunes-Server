@@ -48,7 +48,7 @@ public class SheepHerder implements QuestInterface, TalkNpcTrigger,
 
 	@Override
 	public String getQuestName() {
-		return "Sheep Herder (members)";
+		return "Sheep Herder";
 	}
 
 	@Override

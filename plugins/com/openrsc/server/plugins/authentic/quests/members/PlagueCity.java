@@ -36,7 +36,7 @@ public class PlagueCity implements QuestInterface, TalkNpcTrigger,
 
 	@Override
 	public String getQuestName() {
-		return "Plague City (members)";
+		return "Plague City";
 	}
 
 	@Override

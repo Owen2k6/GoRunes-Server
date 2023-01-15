@@ -33,7 +33,7 @@ public class Observatory implements QuestInterface, TalkNpcTrigger,
 
 	@Override
 	public String getQuestName() {
-		return "Observatory quest (members)";
+		return "Observatory quest";
 	}
 
 	@Override

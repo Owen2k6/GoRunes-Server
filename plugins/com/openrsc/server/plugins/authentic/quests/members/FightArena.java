@@ -37,7 +37,7 @@ public class FightArena implements QuestInterface, TalkNpcTrigger,
 
 	@Override
 	public String getQuestName() {
-		return "Fight Arena (members)";
+		return "Fight Arena";
 	}
 
 	@Override

@@ -25,7 +25,7 @@ public class MonksFriend implements QuestInterface, TalkNpcTrigger,
 
 	@Override
 	public String getQuestName() {
-		return "Monk's friend (members)";
+		return "Monk's friend";
 	}
 
 	@Override

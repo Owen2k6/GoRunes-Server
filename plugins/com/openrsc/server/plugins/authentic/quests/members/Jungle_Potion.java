@@ -31,7 +31,7 @@ public class Jungle_Potion implements QuestInterface, OpLocTrigger,
 
 	@Override
 	public String getQuestName() {
-		return "Jungle potion (members)";
+		return "Jungle potion";
 	}
 
 	@Override

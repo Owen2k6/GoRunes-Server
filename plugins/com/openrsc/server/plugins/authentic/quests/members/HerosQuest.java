@@ -43,7 +43,7 @@ public class HerosQuest implements QuestInterface, TalkNpcTrigger,
 
 	@Override
 	public String getQuestName() {
-		return "Hero's quest (members)";
+		return "Hero's quest";
 	}
 
 	@Override

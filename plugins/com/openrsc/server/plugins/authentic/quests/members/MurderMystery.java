@@ -30,7 +30,7 @@ public class MurderMystery implements QuestInterface, TalkNpcTrigger,
 
 	@Override
 	public String getQuestName() {
-		return "Murder Mystery (members)";
+		return "Murder Mystery";
 	}
 
 	@Override

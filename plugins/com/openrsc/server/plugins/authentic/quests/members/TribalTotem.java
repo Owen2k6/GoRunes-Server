@@ -41,7 +41,7 @@ public class TribalTotem implements QuestInterface, TalkNpcTrigger,
 
 	@Override
 	public String getQuestName() {
-		return "Tribal totem (members)";
+		return "Tribal totem";
 	}
 
 	@Override

@@ -53,7 +53,7 @@ public class BioHazard implements QuestInterface, TalkNpcTrigger,
 
 	@Override
 	public String getQuestName() {
-		return "Biohazard (members)";
+		return "Biohazard";
 	}
 
 	@Override

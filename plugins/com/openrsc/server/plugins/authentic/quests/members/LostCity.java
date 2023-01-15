@@ -47,7 +47,7 @@ public class LostCity implements QuestInterface, TalkNpcTrigger,
 
 	@Override
 	public String getQuestName() {
-		return "Lost City (members)";
+		return "Lost City";
 	}
 
 	@Override

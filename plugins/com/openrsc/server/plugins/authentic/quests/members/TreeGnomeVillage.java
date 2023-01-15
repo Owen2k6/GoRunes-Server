@@ -36,7 +36,7 @@ public class TreeGnomeVillage implements QuestInterface, TalkNpcTrigger,
 
 	@Override
 	public String getQuestName() {
-		return "Tree Gnome Village (members)";
+		return "Tree Gnome Village";
 	}
 
 	@Override

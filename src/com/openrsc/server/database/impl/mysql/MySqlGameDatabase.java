@@ -2029,7 +2029,7 @@ public class MySqlGameDatabase extends JDBCDatabase {
 
 			while (result.next()) {
 				final DiscordWatchlist watchlist = new DiscordWatchlist();
-				watchlist.discordId = Long.parseLong(result.getString("key").substring(10));
+				watchlist.discordId = result.getString("key").substring(10);
 				watchlist.list = result.getString("value");
 				watchlists.add(watchlist);
 			}
@@ -2040,10 +2040,10 @@ public class MySqlGameDatabase extends JDBCDatabase {
 	}
 
 	@Override
-	public int queryPlayerIdFromDiscordId(final long discordId) throws GameDatabaseException {
+	public int queryPlayerIdFromDiscordId(final String discordId) throws GameDatabaseException {
 		int pId = 0;
 		try (final PreparedStatement statement = getConnection().prepareStatement(getMySqlQueries().discordIdToPlayerId)) {
-			statement.setLong(1, discordId);
+			statement.setString(1, discordId);
 
 			try (final ResultSet results = statement.executeQuery()) {
 				if (results.next()) {

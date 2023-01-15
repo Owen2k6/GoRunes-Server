@@ -34,7 +34,7 @@ public class GertrudesCat implements QuestInterface, TalkNpcTrigger,
 
 	@Override
 	public String getQuestName() {
-		return "Gertrude's Cat (members)";
+		return "Gertrude's Cat";
 	}
 
 	@Override
